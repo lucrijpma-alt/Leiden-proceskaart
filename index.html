@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proceskaart — Level 1 Planning tot Control</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f5f5f5;padding:16px}
+
+.proceskaart{width:100%;border-collapse:separate;border-spacing:0}
+
+/* L1 header */
+.l1-row td{
+  background:#3a3a3a;
+  color:#fff;
+  font-size:14px;
+  font-weight:600;
+  padding:10px 16px;
+  text-align:center;
+  border-radius:6px 6px 0 0;
+  letter-spacing:.03em;
+}
+
+/* L2 row */
+.l2-row{background:transparent}
+.l2-row td{padding:8px 4px 4px 4px;vertical-align:top}
+
+/* L3 rows */
+.l3-row td{padding:4px;vertical-align:top}
+
+/* Pijlvorm via clip-path */
+.pijl{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:8px 18px 8px 10px;
+  min-height:56px;
+  font-size:11px;
+  line-height:1.35;
+  font-weight:500;
+  color:#fff;
+  cursor:pointer;
+  text-decoration:none;
+  clip-path:polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 14px 50%);
+  transition:filter .15s, transform .12s;
+  word-break:break-word;
+  hyphens:auto;
+}
+.pijl:first-child{
+  clip-path:polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
+}
+.pijl:hover{filter:brightness(1.18);transform:scale(1.02);z-index:2;position:relative}
+.pijl:active{transform:scale(0.99)}
+
+/* Zijbalk L1 */
+.zijbalk{
+  background:#5a5a5a;
+  color:#fff;
+  font-size:12px;
+  font-weight:600;
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  transform:rotate(180deg);
+  text-align:center;
+  padding:12px 6px;
+  border-radius:4px;
+  vertical-align:middle;
+  letter-spacing:.05em;
+  width:32px;
+}
+
+/* L2 kleur */
+.pijl-l2{background:#5a5a5a;font-size:11.5px;font-weight:600}
+/* L3 kleur rijen */
+.pijl-l3-1{background:#6e6e6e}
+.pijl-l3-2{background:#686868}
+.pijl-l3-3{background:#626262}
+.pijl-l3-4{background:#5c5c5c}
+.pijl-l3-5{background:#585858}
+
+/* Groene variant */
+.pijl-l2{background:#2d4a34}
+.pijl-l3-1{background:#3d6040}
+.pijl-l3-2{background:#3a5c3d}
+.pijl-l3-3{background:#375839}
+.pijl-l3-4{background:#345436}
+.pijl-l3-5{background:#315033}
+
+/* Layout */
+.outer-table{width:100%;border-collapse:collapse}
+.outer-table td{padding:0}
+
+/* Lege cel stijl */
+.leeg{background:transparent!important;clip-path:none!important;cursor:default!important;min-height:56px}
+
+/* Tooltip */
+.pijl[title]:hover::after{
+  content:attr(title);
+  position:absolute;
+  bottom:calc(100% + 6px);
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,.82);
+  color:#fff;
+  font-size:10px;
+  padding:4px 8px;
+  border-radius:4px;
+  white-space:nowrap;
+  max-width:220px;
+  white-space:normal;
+  z-index:10;
+  pointer-events:none;
+}
+
+.wrapper{overflow-x:auto;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.12)}
+
+.instruc{font-size:11px;color:#666;margin-bottom:8px;font-style:italic}
+</style>
+</head>
+<body>
+
+<p class="instruc">Klik op een processtap om naar de bijbehorende documentatie te gaan. Vervang de <code>#</code> links door de echte SharePoint-URLs.</p>
+
+<div class="wrapper">
+<table class="outer-table">
+<colgroup>
+  <col style="width:32px">
+  <col style="width:130px">
+  <col>
+  <col>
+  <col>
+  <col>
+  <col>
+</colgroup>
+
+<!-- L1 header -->
+<tr>
+  <td colspan="7" style="background:#1a2b1e;color:#c4e3ce;font-size:13px;font-weight:600;padding:10px 16px;text-align:center;letter-spacing:.04em;border-radius:6px 6px 0 0">
+    LEVEL 1 — Planning tot Control
+  </td>
+</tr>
+
+<!-- Kolomheaders -->
+<tr style="background:#f0f0f0">
+  <td></td>
+  <td style="font-size:10px;font-weight:600;color:#555;padding:6px 8px;text-align:center;border-bottom:2px solid #2d4a34">Level 2 processtappen</td>
+  <td colspan="5" style="font-size:10px;font-weight:600;color:#555;padding:6px 8px;text-align:center;border-bottom:2px solid #2d4a34">Level 3 processtappen</td>
+</tr>
+
+<!-- ROW 3.1 -->
+<tr>
+  <td rowspan="6" class="zijbalk">Level 1 Planning tot Control</td>
+  <td style="padding:4px">
+    <a href="#VERVANG_URL_L2_31" class="pijl pijl-l2" title="3.1 Definiëren richtlijnen controles">3.1 Definiëren richtlijnen controles</a>
+  </td>
+  <td style="padding:4px"><a href="#VERVANG_URL_311" class="pijl pijl-l3-1" title="3.1.1 Opstellen beleid voor financiële en operationele controles">3.1.1 Opstellen beleid voor financiële en operationele controles</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_312" class="pijl pijl-l3-1" title="3.1.2 Vaststellen governance-structuur en verantwoordelijkheden">3.1.2 Vaststellen governance-structuur en verantwoordelijkheden</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_313" class="pijl pijl-l3-1" title="3.1.3 Bepalen wet- en regelgevingseisen voor financiën en governance">3.1.3 Bepalen wet- en regelgevingseisen voor financiën en governance</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_314" class="pijl pijl-l3-1" title="3.1.4 Implementeren richtlijnen voor interne procescontrole">3.1.4 Implementeren richtlijnen voor interne procescontrole</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_315" class="pijl pijl-l3-1" title="3.1.5 Opstellen rapportagevereisten voor interne controleprocessen">3.1.5 Opstellen rapportagevereisten voor interne controleprocessen</a></td>
+</tr>
+
+<!-- ROW 3.2 -->
+<tr>
+  <td style="padding:4px">
+    <a href="#VERVANG_URL_L2_32" class="pijl pijl-l2" title="3.2 Risicoanalyse uitvoeren">3.2 Risicoanalyse uitvoeren</a>
+  </td>
+  <td style="padding:4px"><a href="#VERVANG_URL_321" class="pijl pijl-l3-2" title="3.2.1 Identificeren van financiële risico's">3.2.1 Identificeren van financiële risico's</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_322" class="pijl pijl-l3-2" title="3.2.2 Analyseren van compliance- en wetgevingsrisico's">3.2.2 Analyseren van compliance- en wetgevingsrisico's</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_323" class="pijl pijl-l3-2" title="3.2.3 Evalueren van operationele risico's binnen onderwijs en onderzoek">3.2.3 Evalueren van operationele risico's binnen onderwijs en onderzoek</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_324" class="pijl pijl-l3-2" title="3.2.4 Opstellen van risicoprofielen en impactanalyses">3.2.4 Opstellen van risicoprofielen en impactanalyses</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_325" class="pijl pijl-l3-2" title="3.2.5 Vaststellen risicobeheersmaatregelen en mitigatiestrategieën">3.2.5 Vaststellen risicobeheers&shy;maatregelen en mitigatiestrategieën</a></td>
+</tr>
+
+<!-- ROW 3.3 -->
+<tr>
+  <td style="padding:4px">
+    <a href="#VERVANG_URL_L2_33" class="pijl pijl-l2" title="3.3 KPI's bepalen medewerker">3.3 KPI's bepalen medewerker</a>
+  </td>
+  <td style="padding:4px"><a href="#VERVANG_URL_331" class="pijl pijl-l3-3" title="3.3.1 Definiëren van financiële KPI's">3.3.1 Definiëren van financiële KPI's</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_332" class="pijl pijl-l3-3" title="3.3.2 Bepalen van operationele KPI's voor planningsprocessen">3.3.2 Bepalen van operationele KPI's voor planningsprocessen</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_333" class="pijl pijl-l3-3" title="3.3.3 Vaststellen KPI's voor risicomanagement en interne controle">3.3.3 Vaststellen KPI's voor risicomanagement en interne controle</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_334" class="pijl pijl-l3-3" title="3.3.4 Integreren van KPI's in dashboards en managementrapportages">3.3.4 Integreren van KPI's in dashboards en managementrapportages</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_335" class="pijl pijl-l3-3" title="3.3.5 Evalueren en bijstellen van KPI's op basis van veranderende omstandigheden">3.3.5 Evalueren en bijstellen van KPI's op basis van veranderende omstandigheden</a></td>
+</tr>
+
+<!-- ROW 3.4 -->
+<tr>
+  <td style="padding:4px">
+    <a href="#VERVANG_URL_L2_34" class="pijl pijl-l2" title="3.4 Toezicht houden en coördineren">3.4 Toezicht houden en coördineren</a>
+  </td>
+  <td style="padding:4px"><a href="#VERVANG_URL_341" class="pijl pijl-l3-4" title="3.4.1 Inrichten van controlemechanismen binnen afdelingen">3.4.1 Inrichten van controlemechanismen binnen afdelingen</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_342" class="pijl pijl-l3-4" title="3.4.2 Coördineren van compliance-acties en auditvoorbereidingen">3.4.2 Coördineren van compliance-acties en auditvoorbereidingen</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_343" class="pijl pijl-l3-4" title="3.4.3 Analyseren van KPI-rapportages en adviseren over bijsturing">3.4.3 Analyseren van KPI-rapportages en adviseren over bijsturing</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_344" class="pijl pijl-l3-4" title="3.4.4 Implementeren van escalatiemechanismen bij afwijkingen">3.4.4 Implementeren van escalatiemechanismen bij afwijkingen</a></td>
+  <td style="padding:4px"><div class="pijl leeg"></div></td>
+</tr>
+
+<!-- ROW 3.5 -->
+<tr>
+  <td style="padding:4px">
+    <a href="#VERVANG_URL_L2_35" class="pijl pijl-l2" title="3.5 Interne controle en monitoren">3.5 Interne controle en monitoren</a>
+  </td>
+  <td style="padding:4px"><a href="#VERVANG_URL_351" class="pijl pijl-l3-5" title="3.5.1 Opstellen van interne controlemaatregelen">3.5.1 Opstellen van interne controlemaatregelen</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_352" class="pijl pijl-l3-5" title="3.5.2 Voortdurende monitoring van financiële stromen">3.5.2 Voortdurende monitoring van financiële stromen</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_353" class="pijl pijl-l3-5" title="3.5.3 Oplossen excepties/uitzonderingen">3.5.3 Oplossen excepties/ uitzonderingen</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_354" class="pijl pijl-l3-5" title="3.5.4 Periodieke evaluatie van monitoringsresultaten en bijsturing">3.5.4 Periodieke evaluatie van monitoringsresultaten en bijsturing</a></td>
+  <td style="padding:4px"><div class="pijl leeg"></div></td>
+</tr>
+
+<!-- ROW 3.6 -->
+<tr>
+  <td style="padding:4px">
+    <a href="#VERVANG_URL_L2_36" class="pijl pijl-l2" title="3.6 Audits uitvoeren">3.6 Audits uitvoeren</a>
+  </td>
+  <td style="padding:4px"><a href="#VERVANG_URL_361" class="pijl pijl-l3-5" title="3.6.1 Voorbereiden en uitvoeren van interne audits">3.6.1 Voorbereiden en uitvoeren van interne audits</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_362" class="pijl pijl-l3-5" title="3.6.2 Dossier voorbereiden voor de externe accountant">3.6.2 Dossier voorbereiden voor de externe accountant</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_363" class="pijl pijl-l3-5" title="3.6.3 Uitvoeren externe audit middels reviewmodel">3.6.3 Uitvoeren externe audit middels reviewmodel</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_364" class="pijl pijl-l3-5" title="3.6.4 Bevindingen evalueren">3.6.4 Bevindingen evalueren</a></td>
+  <td style="padding:4px"><a href="#VERVANG_URL_365" class="pijl pijl-l3-5" title="3.6.5 Auditproces evalueren en opstellen verbeteragenda">3.6.5 Auditproces evalueren en opstellen verbeteragenda</a></td>
+</tr>
+
+</table>
+</div>
+
+</body>
+</html>
